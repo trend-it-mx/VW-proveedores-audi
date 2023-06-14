@@ -1,0 +1,11 @@
+[
+  {
+    "maxAgeSeconds": 3600,
+    "method": ["PUT"],
+    "origin": [
+      "https://dv-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/",
+      "https://test_archvios-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
+    ],
+    "responseHeader": ["Content-Type"]
+  }
+]
