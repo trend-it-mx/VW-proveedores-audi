@@ -1,14 +1,14 @@
 const prod = {
   url: {
-    // API_URL: 'https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/',
-    API_URL: 'https://audi-qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com',
+    API_URL: 'https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/',
+    // API_URL: 'https://audi-qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com',
   },
 };
 const dev = {
   url: {
     // API_URL: 'http://localhost:3000',
-    // API_URL: 'https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/'
-    API_URL: 'https://audi-qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com',
+    API_URL: 'https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/'
+    // API_URL: 'https://audi-qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com',
   },
 };
 // eslint-disable-next-line import/prefer-default-export

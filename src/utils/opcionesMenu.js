@@ -418,6 +418,7 @@ export const catAside  =
         nombre: 'Ingesta',
         ruta: '/ingesta',
         padre: '/',
+        roles: ['Key user'],
         hijos: [
           {
             nombre: 'Órdenes de compra',
@@ -448,6 +449,7 @@ export const catAside  =
       {
         nombre: 'Administración',
         ruta: '/administracion',
+        roles: ['Administrador'],
         padre: '/',
         hijos: [
           {
@@ -521,6 +523,7 @@ export const catAside  =
       {
         nombre: 'Seguridad',
         ruta: '/seguridad',
+        roles: ['Administrador'],
         padre: '/',
         hijos: [
           {
@@ -534,6 +537,7 @@ export const catAside  =
       // {
       //   nombre: 'Transformación',
       //   ruta: '/transformacion',
+      //   roles: ['Key user'],
       //   padre: '/',
       //   hijos: [
       //     {
@@ -571,6 +575,7 @@ export const catAside  =
       {
           nombre: 'Analítica',
           ruta: '/analitica',
+          roles: ['Key user'],
           padre: '/',
           hijos: [{
               nombre: 'Operativo',
@@ -589,6 +594,7 @@ export const catAside  =
         {
           nombre: 'Encuestas',
           ruta: '/encuestas',
+          roles: ['Comprador', 'Solicitante'],
           padre: '/',
           hijos: [],
         }

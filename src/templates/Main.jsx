@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 // import { signOut } from 'next-auth/react';
 
+
 const Main = (props) => {
   const router = useRouter();
   const setUserDetails = useContext(UserDispatchContext);
