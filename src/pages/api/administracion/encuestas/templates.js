@@ -9,7 +9,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT DISTINCT ID_TEMPLATE, NOMBRE_TEMPLATE, TOTAL_PREGUNTAS_TEMPLATE, ESTATUS, EN_USO FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_TEMPLATE DESC`;
+    const query = `SELECT DISTINCT ID_TEMPLATE, NOMBRE_TEMPLATE, TOTAL_PREGUNTAS_TEMPLATE, ESTATUS, EN_USO FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_TEMPLATE DESC`;
     const options = {
       query,
       location: 'EU',
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     SELECT
       MAX(ID_TEMPLATE) AS MAXI
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
     WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"
     `;
     const options = {
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
       SELECT
         ID_TEMPLATE
       FROM
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
       WHERE
         NOMBRE_TEMPLATE = "${template.NOMBRE_TEMPLATE}"
     `;
@@ -81,7 +81,7 @@ export default async function handler(req, res) {
     );
 
     const queryTemplate = `
-        CREATE OR REPLACE TABLE vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB AS
+        CREATE OR REPLACE TABLE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB AS
           WITH NUEVOS AS (
             SELECT
               *
@@ -95,7 +95,7 @@ export default async function handler(req, res) {
           SELECT
             *
           FROM
-            vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+            vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
           UNION ALL
           SELECT
             *

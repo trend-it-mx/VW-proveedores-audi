@@ -7,7 +7,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT ID_PREGUNTA, DESC_PREGUNTA, ESTATUS, EN_USO FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_PREGUNTA DESC`;
+    const query = `SELECT ID_PREGUNTA, DESC_PREGUNTA, ESTATUS, EN_USO FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_PREGUNTA DESC`;
     const options = {
       query,
       location: 'EU',
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     SELECT
       MAX(ID_PREGUNTA) AS MAXI
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB
     WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"`;
     let options = {
       query,
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     let [rows] = await job.getQueryResults();
     const maxi = Number(rows[0].MAXI);
     query = `INSERT INTO
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
     }.CAT_PREGUNTAS_WEB
   WITH
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     SELECT
       MAX(ID_PREGUNTA) AS MAXI
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
         process.env.AMBIENTE_PROD
       }.CAT_PREGUNTAS_WEB
     WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"

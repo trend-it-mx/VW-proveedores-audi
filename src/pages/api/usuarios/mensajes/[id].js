@@ -11,7 +11,7 @@ export default async function userHandler(req, res) {
     method,
   } = req;
   if (method === 'GET') {
-    const query = `SELECT MENSAJE, TIPO_MENSAJE FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_MENSAJES_ENCUESTADO WHERE ID_USUARIO = "${id}" AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_MENSAJE DESC`;
+    const query = `SELECT MENSAJE, TIPO_MENSAJE FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_MENSAJES_ENCUESTADO WHERE ID_USUARIO = "${id}" AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_MENSAJE DESC`;
     const options = {
       query,
       location: 'EU',

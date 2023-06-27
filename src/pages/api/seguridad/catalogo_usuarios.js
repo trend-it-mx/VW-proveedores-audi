@@ -12,9 +12,9 @@ export default async function handler(req, res) {
     CONCAT(CAT.FIRST_NAME, " ", CAT.LAST_NAME) AS FULL_NAME,
     CAT.E_MAIL_ADDRESS AS E_MAIL
   FROM
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_USUARIOS CAT
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_USUARIOS CAT
   LEFT JOIN
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA PLAT
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA PLAT
   ON
     CAT.USER_NAME = PLAT.USER_NAME
   WHERE

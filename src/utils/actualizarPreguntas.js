@@ -5,7 +5,7 @@ const actualizarPreguntas = async () => {
 
   const querySi = `
     UPDATE
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB
     SET
       EN_USO = "SI"
     WHERE
@@ -15,9 +15,9 @@ const actualizarPreguntas = async () => {
         DISTINCT
           CAST(TEMPLATES.ID_PREGUNTA AS STRING)
       FROM
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB PREGUNTAS
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB PREGUNTAS
       RIGHT JOIN
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB TEMPLATES
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB TEMPLATES
       ON
         PREGUNTAS.ID_PREGUNTA = CAST(TEMPLATES.ID_PREGUNTA AS STRING)
       WHERE
@@ -34,7 +34,7 @@ const actualizarPreguntas = async () => {
 
   const queryNo = `
     UPDATE
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB
     SET
       EN_USO = "NO"
     WHERE
@@ -44,9 +44,9 @@ const actualizarPreguntas = async () => {
         DISTINCT
           CAST(PREGUNTAS.ID_PREGUNTA AS STRING)
       FROM
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB PREGUNTAS
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB PREGUNTAS
       LEFT JOIN
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB TEMPLATES
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB TEMPLATES
       ON
         PREGUNTAS.ID_PREGUNTA = CAST(TEMPLATES.ID_PREGUNTA AS STRING)
       WHERE

@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     let query = '';
 
     if (req.body.reemplazo) {
-      query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+      query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
         process.env.AMBIENTE_PROD
       }.TB_ARCHIVOS_FACTURAS SET
     NOMBRE_ARCHIVO = "${archivo.archivo}",
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
         process.env.NEXT_PUBLIC_SISTEMA
       }"`;
     } else {
-      query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+      query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
         process.env.AMBIENTE_PROD
       }.TB_ARCHIVOS_FACTURAS SET
     ESTATUS = "${archivo.estatus}"

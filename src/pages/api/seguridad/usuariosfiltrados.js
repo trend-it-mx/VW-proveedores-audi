@@ -7,7 +7,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT USER_NAME, FULL_NAME, E_MAIL, ROLES, ESTATUS FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA WHERE ESTATUS = 'Activo' AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY USER_NAME DESC`;
+    const query = `SELECT USER_NAME, FULL_NAME, E_MAIL, ROLES, ESTATUS FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA WHERE ESTATUS = 'Activo' AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY USER_NAME DESC`;
     const options = {
       query,
       location: 'EU',

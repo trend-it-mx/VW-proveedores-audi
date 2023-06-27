@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   } = req;
   const idNum = Number(id);
   if (method === 'PUT') {
-    const query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_RUBROS_WEB SET DESC_RUBRO = "${rubro}", ESTATUS = "${estatus}" WHERE ID_RUBRO = ${idNum} AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"`;
+    const query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_RUBROS_WEB SET DESC_RUBRO = "${rubro}", ESTATUS = "${estatus}" WHERE ID_RUBRO = ${idNum} AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"`;
     const options = {
       query,
       location: 'EU',

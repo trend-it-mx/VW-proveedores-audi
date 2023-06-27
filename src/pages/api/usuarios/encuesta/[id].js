@@ -33,17 +33,17 @@ export default async function userHandler(req, res) {
       ENC.ID_RUBRO,
       RUB.DESC_RUBRO
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_CUERPO ENC
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_CUERPO ENC
     LEFT JOIN
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO CAB
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO CAB
     ON
       ENC.ID_REGISTRO_ENCUESTA = CAB.ID_REGISTRO
     LEFT JOIN
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB PRE
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PREGUNTAS_WEB PRE
     ON
       CAST(ENC.ID_PREGUNTA AS STRING) = PRE.ID_PREGUNTA
     LEFT JOIN
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_RUBROS_WEB RUB
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_RUBROS_WEB RUB
     ON
       ENC.ID_RUBRO = RUB.ID_RUBRO
     WHERE
@@ -123,7 +123,7 @@ export default async function userHandler(req, res) {
     const encuesta = req.body;
     const queryEstatus = `
       UPDATE
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO
       SET
         ESTATUS= "${encuesta.ESTATUS}"
       WHERE
@@ -142,7 +142,7 @@ export default async function userHandler(req, res) {
     if (encuesta.TERMINADA) {
       const queryEncabezado = `
       UPDATE
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO
       SET
         INTENTOS_REALIZADOS = ${encuesta.INTENTOS_REALIZADOS}
       WHERE
@@ -173,7 +173,7 @@ export default async function userHandler(req, res) {
     );
 
     const queryCuerpo = `
-        CREATE OR REPLACE TABLE vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_CUERPO AS
+        CREATE OR REPLACE TABLE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_CUERPO AS
           WITH NUEVOS AS (
             SELECT
               ID_REGISTRO_ENCUESTA,
@@ -199,7 +199,7 @@ export default async function userHandler(req, res) {
             ENCUESTA.ROL_RUBRO,
             ENCUESTA.SISTEMA
           FROM
-            vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_CUERPO ENCUESTA
+            vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_CUERPO ENCUESTA
           LEFT JOIN
             NUEVOS RES
           ON
@@ -216,7 +216,7 @@ export default async function userHandler(req, res) {
 
     const queryComentario = `
         UPDATE
-          vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+          vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
             process.env.AMBIENTE_PROD
           }.TB_ENCUESTAS_ENCABEZADO
         SET

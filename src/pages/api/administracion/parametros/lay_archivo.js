@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     const query = `SELECT
     column_name
   FROM
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
     }.INFORMATION_SCHEMA.COLUMNS
   WHERE
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 // const bigquery = new BigQuery();
 // export default async function handler(req, res) {
 //   if (req.method === 'GET') {
-//     const query = `SELECT * FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.LAY_${req.query.tabla} WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY NOMBRE_CAMPO`;
+//     const query = `SELECT * FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.LAY_${req.query.tabla} WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY NOMBRE_CAMPO`;
 //     const options = {
 //       query,
 //       location: 'EU',
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
 
 //     const query = `
 //     CREATE OR REPLACE TABLE
-//   vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.LAY_${req.query.tabla} AS (
+//   vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.LAY_${req.query.tabla} AS (
 //   SELECT
 //     NOMBRE_CAMPO,
 //     DESCRIPCION,

@@ -10,14 +10,14 @@ export default async function handler(req, res) {
     SELECT
       *
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.PasswordPruebas
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.PasswordPruebas
     WHERE
       password = "${req.query.password}"`;
     const [jobPassword] = await bigquery.createQueryJob({
       query: queryPassword,
       location: 'EU',
     });
-    const [rowsPassword] = await jobPassword.getQueryResults();
+    const [rowsPassword] = await jobPassword.getQueryResults();    
 
     if (rowsPassword.length > 0) {
       const queryUserName = `
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       E_MAIL,
       ROLES
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA
     WHERE
       USER_NAME = '${req.query.userName}'
       AND ESTATUS = "Activo"

@@ -6,7 +6,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT * FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_ROL_SEGURIDAD`;
+    const query = `SELECT * FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_ROL_SEGURIDAD`;
     const options = {
       query,
       location: 'EU',

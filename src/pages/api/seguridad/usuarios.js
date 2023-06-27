@@ -7,7 +7,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT USER_NAME, FULL_NAME, E_MAIL, ROLES, ESTATUS FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY USER_NAME DESC`;
+    const query = `SELECT USER_NAME, FULL_NAME, E_MAIL, ROLES, ESTATUS FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY USER_NAME DESC`;
     const options = {
       query,
       location: 'EU',
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     res.status(200).json(rows);
   } else if (req.method === 'POST') {
     const query = `INSERT INTO
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
     }.TB_USUARIOS_PLATAFORMA
   SELECT

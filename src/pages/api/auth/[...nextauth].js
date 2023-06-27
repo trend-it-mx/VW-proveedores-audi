@@ -24,7 +24,7 @@ export default NextAuth({
         SELECT
           *
         FROM
-          vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA
+          vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA
         WHERE
           E_MAIL='${user.email}'
           AND ESTATUS = "Activo"
@@ -60,7 +60,7 @@ export default NextAuth({
             FULL_NAME,
             ROLES
           FROM
-            vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA
+            vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_USUARIOS_PLATAFORMA
           WHERE
             E_MAIL='${copiaToken.email}'
             AND ESTATUS = "Activo"

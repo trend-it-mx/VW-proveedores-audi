@@ -16,7 +16,7 @@ export default async function userHandler(req, res) {
       FECHA_GENERADA,
       ESTATUS
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ENCUESTAS_ENCABEZADO
     WHERE
       USUARIO_ENCUESTADO = "${req.query.usuario}"
       AND SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"

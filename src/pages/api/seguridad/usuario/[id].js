@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   if (method === 'GET') {
     res.status(200).json({ id, name: `User ${id}` });
   } else if (method === 'PUT') {
-    const query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+    const query = `UPDATE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
     }.TB_USUARIOS_PLATAFORMA SET ROLES = [${roles.map(
       (rol) => `"${rol}"`

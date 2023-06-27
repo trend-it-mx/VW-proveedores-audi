@@ -62,7 +62,7 @@ export default async function handler(req, res) {
           const query = `SELECT
         column_name
       FROM
-        vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+        vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
           process.env.AMBIENTE_PROD
         }.INFORMATION_SCHEMA.COLUMNS
       WHERE

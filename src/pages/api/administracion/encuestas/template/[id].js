@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     const query = `SELECT
     *
   FROM
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
     }.CAT_TEMPLATES_ENCUESTA_WEB
   WHERE ID_TEMPLATE = ${Number(id)} AND SISTEMA = "${
@@ -83,7 +83,7 @@ export default async function handler(req, res) {
     if (req.body?.EN_USO) {
       const querySi = `
         UPDATE
-          vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+          vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
         SET
           EN_USO = true
         WHERE
@@ -99,7 +99,7 @@ export default async function handler(req, res) {
 
       const queryNo = `
         UPDATE
-          vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+          vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
         SET
           EN_USO = false
         WHERE
@@ -119,7 +119,7 @@ export default async function handler(req, res) {
     if (req.body?.estatus) {
       const query = `
         UPDATE
-          vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+          vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
         SET
           ESTATUS = "${req.body.estatus}"
         WHERE
@@ -166,7 +166,7 @@ export default async function handler(req, res) {
       // console.log(trans);
 
       const query = `
-        CREATE OR REPLACE TABLE vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB AS
+        CREATE OR REPLACE TABLE vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB AS
           WITH NUEVOS AS (
             SELECT
               *
@@ -199,7 +199,7 @@ export default async function handler(req, res) {
               SELECT
                 *
               FROM
-                vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
+                vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_TEMPLATES_ENCUESTA_WEB
               WHERE
                 (
                   ID_TEMPLATE != ${template.ID_TEMPLATE}

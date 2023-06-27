@@ -7,7 +7,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT ID_ARCHIVO, NOMBRE_ARCHIVO, FECHA_CARGA, ESTATUS FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ARCHIVOS_FACTURAS WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_ARCHIVO DESC`;
+    const query = `SELECT ID_ARCHIVO, NOMBRE_ARCHIVO, FECHA_CARGA, ESTATUS FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ARCHIVOS_FACTURAS WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}" ORDER BY ID_ARCHIVO DESC`;
     const options = {
       query,
       location: 'EU',
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     SELECT
       MAX(ID_ARCHIVO) AS MAXI
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${process.env.AMBIENTE_PROD}.TB_ARCHIVOS_FACTURAS
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.TB_ARCHIVOS_FACTURAS
       WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}"`;
     let options = {
       query,
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       fecha_y_hora_ingesta: new Date().toISOString(),
     };
     query = `INSERT INTO
-    vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+    vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
     }.TB_ARCHIVOS_FACTURAS
     WITH
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     SELECT
       MAX(ID_ARCHIVO) AS MAXI
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_${
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
         process.env.AMBIENTE_PROD
       }.TB_ARCHIVOS_FACTURAS
       WHERE SISTEMA = "${process.env.NEXT_PUBLIC_SISTEMA}")

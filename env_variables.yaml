@@ -1,9 +1,11 @@
 env_variables:
   AMBIENTE_PROD: "QA"
-  NEXT_PUBLIC_API_URL: "https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
+  # NEXT_PUBLIC_API_URL: "https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
+  NEXT_PUBLIC_API_URL: "https://audi-qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
   NEXT_PUBLIC_SISTEMA: "AUDI"
   NEXTAUTH_URL: "https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
-  NEXTAUTH_URL_INTERNAL: "https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
+  # NEXTAUTH_URL_INTERNAL: "https://qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
+  NEXTAUTH_URL_INTERNAL: "https://audi-qa-dot-vw-vwm-bi-anagp-p-evalpro-l44.nw.r.appspot.com/"
   COGNITO_ID: "2ub65s5o4dkstcgfhsp4ep108l"
   COGNITO_SECRET: "4j10i953dm1dc1uqrcedp112ksvg7k1epmu9oh2e1c32imun08q"
   COGNITO_ISSUER: "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_bqZ2rmay3"
