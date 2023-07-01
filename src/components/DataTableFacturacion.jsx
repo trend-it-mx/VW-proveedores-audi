@@ -77,7 +77,7 @@ function DataTable({ rows, setActualizar, setData }) {
               }} className="cursor-pointer" >
               {
                 <div className="min-h-6 mb-0.5 flex items-center">
-                  <input checked={row.original.estatus === 'ACTIVO' ? 'true' : 'false' } className="rounded-10 duration-300 ease-in-out after:rounded-circle after:shadow-2xl after:duration-300 checked:after:translate-x-5.3 h-5 mt-0.5 relative float-left w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-black/95 checked:bg-stone-500/95 checked:bg-none checked:bg-right" type="checkbox" /> 
+                  <input checked={row.original.estatus === 'ACTIVO' ? 'true' : '' } className="rounded-10 duration-300 ease-in-out after:rounded-circle after:shadow-2xl after:duration-300 checked:after:translate-x-5.3 h-5 mt-0.5 relative float-left w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-black/95 checked:bg-stone-500/95 checked:bg-none checked:bg-right" type="checkbox" /> 
                 </div>
               }
             </button>

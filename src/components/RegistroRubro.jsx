@@ -19,9 +19,11 @@ const Registro = ({ actualizar, setActualizar, data, setData }) => {
         !actualizar.activo && 'hidden'
       } fixed top-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40`}
     >
-      <div className="flex w-2/3 flex-col divide-y-2 bg-white">
-        <div className="w-full bg-vw_dark_blue pl-4 pt-2 pb-1 text-white">
-          Registro de rubro
+      <div className="relative flex flex-col bg-white border border-solid pointer-events-auto dark:bg-slate-850 bg-clip-padding border-black/20 rounded-xl outline-0">        
+        <div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
+          <h5 class="mb-0 leading-normal dark:text-white" >Registro de rubro</h5>
+        </div>
+        <div className="w-full bg-vw_dark_blue pl-4 pt-2 pb-1 text-white">          
         </div>
         <Formik
           initialValues={{
@@ -88,14 +90,16 @@ const Registro = ({ actualizar, setActualizar, data, setData }) => {
           {(formik) => {
             return (
               <Form className="flex flex-col gap-2">
-                <div className="flex">
+                <div className="px-3 flex-0">
                   <label
                     htmlFor={'rubro'}
-                    className="w-1/4 bg-vw_dark_blue pl-4 pt-2 pb-1 font-light text-white"
+                    className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
                   >
                     Rubro:
                   </label>
-                  <Field type="text" className="w-full pl-4" name="rubro" />
+                  <div className="relative flex flex-wrap items-stretch w-full rounded-lg">
+                    <Field type="text" className="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-black focus:outline-none" name="rubro" />
+                  </div>      
                 </div>
                 {formik.errors.rubro && formik.touched.rubro && (
                   <div className="flex gap-1 text-red-500 font-bold pl-5">
@@ -103,7 +107,7 @@ const Registro = ({ actualizar, setActualizar, data, setData }) => {
                     <ErrorMessage name="rubro" />
                   </div>
                 )}
-                <div className="flex w-full items-center justify-center gap-10 py-2">
+                <div className="flex w-full items-center justify-center gap-10 py-2 pl-12 pr-12">
                   <Boton
                     texto="Cancelar"
                     type="reset"

@@ -464,26 +464,26 @@ export const catAside  =
             padre: '/administracion/parametros',
             hijos: [],
           },
-          // {
-          //   nombre: 'Layout de archivos de órdenes',
+          // { no existe en el menu original
+          //   nombre: 'Layout archivos de órdenes',
           //   ruta: '/administracion/parametros/layout_de_archivos/layout_de_archivos_de_ordenes',
           //   padre: '/administracion/parametros/layout_de_archivos',
           //   hijos: [],
           // },
-          // {
-          //   nombre: 'Layout de archivos de usuarios',
+          // { no existe en el menu original
+          //   nombre: 'Layout archivos de usuarios',
           //   ruta: '/administracion/parametros/layout_de_archivos/layout_de_archivos_de_usuarios',
           //   padre: '/administracion/parametros/layout_de_archivos',
           //   hijos: [],
           // },
-          // {
-          //   nombre: 'Layout de archivos de escalamiento',
+          // { no existe en el menu original
+          //   nombre: 'Layout archivos de escalamiento',
           //   ruta: '/administracion/parametros/layout_de_archivos/layout_de_archivos_de_escalamiento',
           //   padre: '/administracion/parametros/layout_de_archivos',
           //   hijos: [],
           // },
-          // {
-          //   nombre: 'Layout de archivos de facturas',
+          // { no existe en el menu original
+          //   nombre: 'Layout archivos de facturas',
           //   ruta: '/administracion/parametros/layout_de_archivos/layout_de_archivos_de_facturas',
           //   padre: '/administracion/parametros/layout_de_archivos',
           //   hijos: [],
@@ -494,18 +494,18 @@ export const catAside  =
             padre: '/administracion/encuestas',
             hijos: [],
           },
-          // {
-          //   nombre: 'Rubros',
-          //   ruta: '/administracion/encuestas/rubros',
-          //   padre: '/administracion/encuestas',
-          //   hijos: [],
-          // },
-          // {
-          //   nombre: 'Templates',
-          //   ruta: '/administracion/encuestas/templates',
-          //   padre: '/administracion/encuestas',
-          //   hijos: [],
-          // },
+          {
+            nombre: 'Rubros',
+            ruta: '/administracion/encuestas/rubros',
+            padre: '/administracion/encuestas',
+            hijos: [],
+          },
+          {
+            nombre: 'Templates',
+            ruta: '/administracion/encuestas/templates',
+            padre: '/administracion/encuestas',
+            hijos: [],
+          },
           {
             nombre: 'Cargar calendario',
             ruta: '/administracion/calendario/cargar_calendario',
@@ -534,44 +534,44 @@ export const catAside  =
           }
         ],
       },
-      // {
-      //   nombre: 'Transformación',
-      //   ruta: '/transformacion',
-      //   roles: ['Key user'],
-      //   padre: '/',
-      //   hijos: [
-      //     {
-      //       nombre: 'Cálculo de tipo de cambio',
-      //       ruta: '/transformacion/calculo_de_tipo_de_cambio',
-      //       padre: '/transformacion',
-      //       hijos: [],
-      //     },
-      //     {
-      //       nombre: 'Suma total del pedido',
-      //       ruta: '/transformacion/suma_total_del_pedido',
-      //       padre: '/transformacion',
-      //       hijos: [],
-      //     },
-      //     {
-      //       nombre: 'Total Facturado',
-      //       ruta: '/transformacion/total_facturado',
-      //       padre: '/transformacion',
-      //       hijos: [],
-      //     },
-      //     {
-      //       nombre: 'Ingesta de Usuarios y Roles',
-      //       ruta: '/transformacion/ingesta_de_usuarios_y_roles',
-      //       padre: '/transformacion',
-      //       hijos: [],
-      //     },
-      //     {
-      //       nombre: 'Generación de Encuestas',
-      //       ruta: '/transformacion/generacion_de_encuestas',
-      //       padre: '/transformacion',
-      //       hijos: [],
-      //     }
-      //   ],
-      // },
+      {
+        nombre: 'Transformación',
+        ruta: '/transformacion',
+        roles: ['Key user'],
+        padre: '/',
+        hijos: [
+          {
+            nombre: 'Cálculo de tipo de cambio',
+            ruta: '/transformacion/calculo_de_tipo_de_cambio',
+            padre: '/transformacion',
+            hijos: [],
+          },
+          {
+            nombre: 'Suma total del pedido',
+            ruta: '/transformacion/suma_total_del_pedido',
+            padre: '/transformacion',
+            hijos: [],
+          },
+          {
+            nombre: 'Total Facturado',
+            ruta: '/transformacion/total_facturado',
+            padre: '/transformacion',
+            hijos: [],
+          },
+          {
+            nombre: 'Ingesta de Usuarios y Roles',
+            ruta: '/transformacion/ingesta_de_usuarios_y_roles',
+            padre: '/transformacion',
+            hijos: [],
+          },
+          {
+            nombre: 'Generación de Encuestas',
+            ruta: '/transformacion/generacion_de_encuestas',
+            padre: '/transformacion',
+            hijos: [],
+          }
+        ],
+      },
       {
           nombre: 'Analítica',
           ruta: '/analitica',

@@ -22,20 +22,18 @@ const PuntosRubroField = ({ idx, puntosRubros, setPuntosRubros }) => {
 
   return (
     <div className="group relative z-0 w-full">
+      <label htmlFor={`rubros.${idx}.puntos_rubro`} className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" >
+        Total de puntos del rubro:
+      </label>
       <Field
         name={`rubros.${idx}.puntos_rubro`}
         type="number"
         placeholder=" "
         value={puntosRubros[idx]}
         disabled
-        className="peer block w-full appearance-none border-0 border-b-2 border-gray-600 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 "
+        className="focus:shadow-primary-outline dark:bg-slate-850 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-black focus:outline-none"
       />
-      <label
-        htmlFor={`rubros.${idx}.puntos_rubro`}
-        className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 text-sm text-gray-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 "
-      >
-        Total de puntos del rubro:
-      </label>
+      
     </div>
   );
 };

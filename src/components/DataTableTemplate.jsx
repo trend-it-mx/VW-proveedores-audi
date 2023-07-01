@@ -13,6 +13,11 @@ import { config } from '@/utils/constants';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import fuzzyFilter from '@/utils/fuzzyFilter';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSortUp, faSortDown, faChevronRight,  faChevronLeft, faAnglesLeft, faAnglesRight, faPenToSquare , faSearch
+} from "@fortawesome/free-solid-svg-icons";
+
 
 const colSpan = (idx, len) => {
   if (idx === 1) {
@@ -85,17 +90,16 @@ function DataTable({ rows, setData }) {
         cell: ({ row }) => {
           return (
             <button
-              onClick={() => editarTemplate(row.index, row.original)}
-              className="cursor-pointer"
-            >
-              <Image
-                src={`/assets/images/${
-                  row.original.estatus === 'Activa' ? 'activado' : 'desactivado'
-                }.png`}
-                alt="Lápiz escribiendo"
-                width="40"
-                height="20"
-              />
+              {...{
+                onClick: () => {
+                  editarTemplate(row.index, row.original);
+                },
+              }} className="cursor-pointer" >
+              {
+                <div className="min-h-6 mb-0.5 flex items-center">
+                  <input checked={row.original.estatus === 'Activa' ? 'true' : '' } className="rounded-10 duration-300 ease-in-out after:rounded-circle after:shadow-2xl after:duration-300 checked:after:translate-x-5.3 h-5 mt-0.5 relative float-left w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-black/95 checked:bg-stone-500/95 checked:bg-none checked:bg-right" type="checkbox" /> 
+                </div>
+              }
             </button>
           );
         },
@@ -106,20 +110,14 @@ function DataTable({ rows, setData }) {
         cell: ({ row }) => {
           return (
             <button
-              onClick={() =>
-                router.push(
-                  `/administracion/encuestas/templates/${row.original.id}`
-                )
-              }
-              className="cursor-pointer pt-1"
-            >
-              <Image
-                src="/assets/images/editar.png"
-                alt="Lápiz escribiendo"
-                width="30"
-                height="30"
-              />
+                onClick={() =>
+                  router.push(
+                    `/administracion/encuestas/templates/${row.original.id}`
+                  )
+                } className="cursor-pointer">
+              <FontAwesomeIcon icon={faPenToSquare} className="min-h-6"/>
             </button>
+        
           );
         },
       },
@@ -145,140 +143,123 @@ function DataTable({ rows, setData }) {
     debugTable: false,
   });
   return (
-    <div className="w-full flex flex-col gap-2">
-      <div className="flex items-center gap-6">
-        <h2 className="text-xl text-gray-600">Buscar: </h2>
-        <input
-          value={globalFilter ?? ''}
-          onChange={(e) => setGlobalFilter(e.target.value)}
-          className="p-1 font-lg border-2 shadow rounded border-block border-vw_dark_blue"
-          placeholder={'...'}
-        />
-      </div>
-      <table className="flex w-full flex-col gap-3">
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr
-              key={headerGroup.id}
-              className="grid grid-cols-12 justify-items-start border-2 border-black bg-vw_dark_blue py-2 pl-4 text-base font-light text-white"
-            >
-              {headerGroup.headers.map((header) => {
-                return (
-                  <th
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    className={'col-span-3'}
-                  >
-                    {header.isPlaceholder ? null : (
-                      <div
-                        {...{
-                          className: header.column.getCanSort()
-                            ? 'cursor-pointer select-none'
-                            : '',
-                          onClick: header.column.getToggleSortingHandler(),
-                        }}
-                      >
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
+    <div className="relative flex flex-col w-full min-w-0 mb-0 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+      <div className="flex-auto px-0 pt-0 pb-2">
+        <div className="p-0 overflow-x-auto">
+          <div className="flex items-center gap-6 w-full max-w-full px-3 mx-auto mt-4 ">
+            <div className="relative flex flex-wrap items-stretch  transition-all rounded-lg ease gap-6">
+              <span className="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                <FontAwesomeIcon icon={faSearch}/>
+              </span>                              
+              <input
+                value={globalFilter ?? ''}
+                onChange={(e) => setGlobalFilter(e.target.value)}
+                className="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow"
+                placeholder={'Buscar'}
+              />
+            </div>
+          </div>
+        <div className="table-responsive">
+          <table className="flex w-full flex-col gap-">
+            <thead className="align-bottom">
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id}> {headerGroup.headers.map((header, idx) => {
+                    return (
+                      <th className="px-20 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" key={header.id} colSpan={header.colSpan} >
+                        {header.isPlaceholder ? null : (
+                          <div
+                            {...{
+                              className: header.column.getCanSort()
+                                ? 'cursor-pointer select-none'
+                                : '',
+                              onClick: header.column.getToggleSortingHandler(),
+                            }}>
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                            {{ asc: <> <FontAwesomeIcon icon={faSortUp} className="text-sm  text-black"/> </> 
+                            ,desc: <> <FontAwesomeIcon icon={faSortDown} className="text-sm  text-black"/> </> , }
+                            [header.column.getIsSorted()] ?? null}
+                          </div>
                         )}
-                        {{
-                          asc: ' 🔼',
-                          desc: ' 🔽',
-                        }[header.column.getIsSorted()] ?? null}
-                      </div>
-                    )}
-                  </th>
+                      </th>
+                    );
+                  })}
+                </tr>
+              ))}
+            </thead>
+            <tbody className="flex w-full flex-col gap-3">
+            
+              {table.getRowModel().rows.map((row) => {
+                return (
+                  <tr key={row.id} className="grid grid-cols-5 items-center justify-items-start pl-20 text-base bg-transparent border-b text-sm shadow-transparent">
+                    {row.getVisibleCells().map((cell, idx) => {
+                      return (
+                        <td key={cell.id} >
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
                 );
               })}
-            </tr>
-          ))}
-        </thead>
-        <tbody className="flex w-full flex-col gap-3">
-          {table.getRowModel().rows.map((row) => {
-            return (
-              <tr
-                key={row.id}
-                className="grid grid-cols-12 items-center justify-items-start border-2 border-black pl-4 text-base text-black"
-              >
-                {row.getVisibleCells().map((cell, idx) => {
-                  return (
-                    <td
-                      key={cell.id}
-                      className={colSpan(idx, row.getVisibleCells().length)}
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      {/* Inicio de paginación */}
-      <div className="flex justify-center">
-        <button
-          onClick={() => table.setPageIndex(0)}
-          className="border border-vw_dark_blue bg-vw_dark_blue hover:scale-95 hover:bg-white ease-out rounded-lg overflow-hidden
-          relative transition-all duration-75 hover:border-vw_dark_blue hover:text-vw_dark_blue hover:font-bold text-white font-bold py-2 px-4
-          hover:after:w-full after:absolute after:h-full after:transition-all after:w-0 after:top-0 after:left-0 after:z-1 mr-1"
-          disabled={!table.getCanPreviousPage()}
-        >
-          {'<<'}
-        </button>
-        <button
-          className="border border-vw_dark_blue bg-vw_dark_blue hover:scale-95 hover:bg-white ease-out rounded-lg overflow-hidden
-          relative transition-all duration-75 hover:border-vw_dark_blue hover:text-vw_dark_blue hover:font-bold text-white font-bold py-2 px-4
-          hover:after:w-full after:absolute after:h-full after:transition-all after:w-0 after:top-0 after:left-0 after:z-1 mr-1"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {'<'}
-        </button>
-        <button
-          className="border border-vw_dark_blue bg-vw_dark_blue hover:scale-95 hover:bg-white ease-out rounded-lg overflow-hidden
-          relative transition-all duration-75 hover:border-vw_dark_blue hover:text-vw_dark_blue hover:font-bold text-white font-bold py-2 px-4
-          hover:after:w-full after:absolute after:h-full after:transition-all after:w-0 after:top-0 after:left-0 after:z-1 mr-1"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          {'>'}
-        </button>
-        <button
-          className="border border-vw_dark_blue bg-vw_dark_blue hover:scale-95 hover:bg-white ease-out rounded-lg overflow-hidden
-          relative transition-all duration-75 hover:border-vw_dark_blue hover:text-vw_dark_blue hover:font-bold text-white font-bold px-2
-          hover:after:w-full after:absolute after:h-full after:transition-all after:w-0 after:top-0 after:left-0 after:z-1 mr-1"
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          disabled={!table.getCanNextPage()}
-        >
-          {'>>'}
-        </button>
-        <span className="flex items-center gap-1 pr-1">
-          <div>Página</div>
-          <strong>
-            {table.getState().pagination.pageIndex + 1} de{' '}
-            {table.getPageCount()}
-          </strong>
-        </span>
-        <span className="flex items-center gap-1">
-          | Ir a la página:
-          <input
-            type="number"
-            defaultValue={table.getState().pagination.pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0;
-              table.setPageIndex(page);
-            }}
-            className="border-2 border-vw_dark_blue p-1 rounded w-16"
-          />
-        </span>
+            </tbody>
+          </table>
+        </div>        
+        {/* Inicio de paginación */}
+        <div className="flex justify-right px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
+          <button
+            onClick={() => table.setPageIndex(0)} clasName="inline-block px-2 py-1 mr-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-black to-stone-500 leading-normal text-xs ease-in tracking-tight-rem shadow-xs  bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md"
+            disabled={!table.getCanPreviousPage()} >
+            <FontAwesomeIcon icon={faAnglesLeft} className="p-2"/>
+          </button>
+          <button            
+            clasName="inline-block px-2 py-1 mr-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-black to-stone-500 leading-normal text-xs ease-in tracking-tight-rem shadow-xs  bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}>
+            <FontAwesomeIcon icon={faChevronLeft} className="p-2"/>
+          </button>
+          <button
+            clasName="inline-block px-2 py-1 mr-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-black to-stone-500 leading-normal text-xs ease-in tracking-tight-rem shadow-xs  bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}>
+            <FontAwesomeIcon icon={faChevronRight} className="p-2"/>
+          </button>
+          <button
+            clasName="inline-block px-2 py-1 mr-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-black to-stone-500 leading-normal text-xs ease-in tracking-tight-rem shadow-xs  bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md"
+            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+            disabled={!table.getCanNextPage()}>
+            <FontAwesomeIcon icon={ faAnglesRight} className="p-2"/>
+          </button>
+          <span className="flex items-center gap-1 pr-1">
+            <div>Página</div>
+            <strong>
+              {table.getState().pagination.pageIndex + 1} de{' '}
+              {table.getPageCount()}
+            </strong>
+          </span>
+          <span className="flex items-center gap-1">
+            | Ir a la página:
+            <input
+              type="number"
+              defaultValue={table.getState().pagination.pageIndex + 1}
+              onChange={(e) => {
+                const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                table.setPageIndex(page);
+              }}
+              className="border-2 border-vw_dark_blue p-1 rounded w-16"
+            />
+          </span>
+        </div>
+        {/* Fin de paginación */}
       </div>
-      {/* Fin de paginación */}
     </div>
+  </div>
+    
   );
 }
 export default DataTable;

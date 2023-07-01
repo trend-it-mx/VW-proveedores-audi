@@ -239,13 +239,12 @@ const Registro = ({ actualizar, setActualizar, setData }) => {
               {actualizar.dato?.roles?.some(
                 (rol) => ['Comprador', 'Solicitante'].indexOf(rol) >= 0
               ) && (
-                <div className="flex gap-4 px-8 bg-vw_dark_blue text-white h-full items-center">
-                  <label htmlFor={'visualizador'} className="whitespace-nowrap">
-                    Acceso a tableros
-                  </label>
+                <div className="flex gap-4 px-8  text-white h-full items-center">
+                  <label htmlFor={'visualizador'}  className="mb-3 py-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80">
+                    Acceso a tableros                  
                   <input
                     type="checkbox"
-                    className="h-6 w-6"
+                    class="w-5 h-5 ease text-base -ml-7 rounded-1.4  checked:bg-gradient-to-tl checked:from-black checked:to-black after:text-xxs after:font-awesome after:duration-250 after:ease-in-out duration-250 relative float-left mt-1 cursor-pointer appearance-none border border-solid border-slate-150 bg-white bg-contain bg-center bg-no-repeat align-top transition-all after:absolute after:flex after:h-full after:w-full after:items-center after:justify-center after:text-white after:opacity-0 after:transition-all after:content-['\f00c'] checked:border-0 checked:border-transparent checked:bg-transparent checked:after:opacity-100"
                     checked={actualizar.dato.roles?.[1] === 'Analista'}
                     onChange={(e) => {
                       setActualizar((previo) => {
@@ -259,6 +258,7 @@ const Registro = ({ actualizar, setActualizar, setData }) => {
                       });
                     }}
                   />
+                  </label>
                 </div>
               )}
             </div>

@@ -29,8 +29,23 @@ const IngestaDeUsuariosYRoles = ({ data, error }) => {
   }, [error]);
   return (
     <Main meta={<Meta title="Componentes" description="Componentes" />}>
-      <div className="flex w-full flex-col items-center gap-4">
+        <div class="relative flex flex-col ">
+          <div class="table-responsive">
+              <div className="w-full mx-auto p-2">
+                <div className="relative flex flex-col flex-auto min-w-0 p-4  overflow-hidden break-words bg-white border-0 shadow-3xl dark:bg-slate-850 rounded-2xl bg-clip-border">
+                  <div className="flex flex-wrap -mx-3">
+                    <div className="flex-none w-auto max-w-full px-3 my-auto">
+                      <div className="h-full">
+                        <h5 className="mb-1 dark:text-white">Ingesta de Usuarios y Roles</h5>
+                      </div>
+                    </div>                                    
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-full flex-col items-center">
         <DataTable rows={ingestaUsuarios} setData={setIngestaUsuarios} />
+      </div>
+      </div>
       </div>
     </Main>
   );
