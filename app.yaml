@@ -1,6 +1,6 @@
 env: standard
 runtime: nodejs16
-service: audi-qa
+service: audi-qa-autodeploy
 handlers:
   - url: /.*
     secure: always
