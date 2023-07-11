@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       }.TB_ARCHIVOS_FACTURAS SET
     NOMBRE_ARCHIVO = "${archivo.archivo}",
     ESTATUS = "${archivo.estatus}",
-    RUTA_STORAGE = "gs://vw-vwm-bi-anagp-p-evalpro-l44-archivos-${process.env.AMBIENTE_PROD.toLowerCase()}/Facturacion/facturacion_${
+    RUTA_STORAGE = "gs://vw-vwm-bi-anagp-p-evalpro-l44-archivos-audi-${process.env.AMBIENTE_PROD.toLowerCase()}/Facturacion/facturacion_${
         process.env.NEXT_PUBLIC_SISTEMA
       }_${id}_${archivo.archivo}}",
     FECHA_CARGA = CAST("${archivo.fecha_y_hora_ingesta}" AS TIMESTAMP)

@@ -148,19 +148,14 @@ function DataTable({ rows }) {
             <tbody className="flex w-full flex-col gap-3">
               {table.getRowModel().rows.map((row) => {
                 return (
-                  <tr
-                    key={row.id}
-                    className="grid grid-cols-12  items-center justify-items-start pl-4   overflow-hidden text-base bg-transparent border-b text-sm shadow-transparent"
-                  >
+                  <tr key={row.id} className="grid grid-cols-12  items-center justify-items-start pl-4 overflow-hidden text-base bg-transparent border-b text-sm shadow-transparent">
                     {row.getVisibleCells().map((cell, idx) => {
                       return (
-                        <td key={cell.id} className={`col-span-${colSpan(idx)}`}>
-                          
+                        <td key={cell.id} className={`col-span-${colSpan(idx)}`}>                          
                             {flexRender(
                               cell.column.columnDef.cell,
                               cell.getContext()
-                            )}
-                          
+                            )}                          
                         </td>
                       );
                     })}

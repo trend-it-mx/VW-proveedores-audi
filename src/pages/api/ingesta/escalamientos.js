@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       ${maxi + 1} AS ID_ARCHIVO,
       "${archivo.archivo}" AS NOMBRE_ARCHIVO,
       "ACTIVO" AS ESTATUS,
-      "gs://vw-vwm-bi-anagp-p-evalpro-l44-archivos-${process.env.AMBIENTE_PROD.toLowerCase()}/${
+      "gs://vw-vwm-bi-anagp-p-evalpro-l44-archivos-audi-${process.env.AMBIENTE_PROD.toLowerCase()}/${
       req.body.ruta
     }}" AS RUTA_STORAGE,
       CAST("${archivo.fecha_y_hora_ingesta}" AS TIMESTAMP) AS FECHA_CARGA,
