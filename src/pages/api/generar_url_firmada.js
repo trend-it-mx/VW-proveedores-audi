@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const storage = new Storage();
   try {
     const bucket = storage.bucket(
-      `vw-vwm-bi-anagp-p-evalpro-l44-archivos-${process.env.AMBIENTE_PROD.toLowerCase()}`
+      `vw-vwm-bi-anagp-p-evalpro-l44-archivos-audi-${process.env.AMBIENTE_PROD.toLowerCase()}`
     );
     const file = bucket.file(req.query.filePath);
     const options = {

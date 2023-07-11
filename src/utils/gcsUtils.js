@@ -13,7 +13,7 @@ export const eliminar = async () => {
   // async function deleteFile() {
   //   await storage
   //     .bucket(
-  //       `vw-vwm-bi-anagp-p-evalpro-l44-archivos-${process.env.AMBIENTE_PROD.toLowerCase()}`
+  //       `vw-vwm-bi-anagp-p-evalpro-l44-archivos-audi-${process.env.AMBIENTE_PROD.toLowerCase()}`
   //     )
   //     .file(fileName)
   //     .delete(deleteOptions);
