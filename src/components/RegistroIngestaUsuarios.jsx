@@ -126,6 +126,11 @@ const Registro = ({
 
       const agregarArchivo = async () => {
         let idNuevo;
+        console.log("----------------------");
+        console.log(process.env.NEXT_PUBLIC_SISTEMA);
+        console.log(carpetaBucket.toLowerCase());
+        console.log(config.url.API_URL);
+        console.log("----------------------");
         try {
           const postRes = await axios.post(
             `${config.url.API_URL}/${rutaFull}`,
