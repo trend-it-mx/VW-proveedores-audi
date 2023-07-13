@@ -38,7 +38,7 @@ export default async function handler(req, res) {
             STG_${process.env.AMBIENTE_PROD}.TB_ARCHIVOS_${layout}
           WHERE
             NOMBRE_ARCHIVO = "${file.originalFilename}"
-            AND SISTEMA = "VW"
+            AND SISTEMA = "AUDI"
         `;
         const [jobIgualdad] = await bigquery.createQueryJob({
           query: queryIgualdad,
