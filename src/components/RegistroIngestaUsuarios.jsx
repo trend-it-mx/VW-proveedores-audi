@@ -28,6 +28,18 @@ const Registro = ({
   const [archivo, setArchivo] = useState();
   // const { data: session } = useSession();
 
+  console.log("------------------------------------------")
+  console.log(actualizar)
+  console.log(setActualizar)
+  console.log(data)
+  console.log(setData)
+  console.log(registro)
+  console.log(rutaFull)
+  console.log(rutaID)
+  console.log(carpetaBucket)
+  console.log(tabla)
+  console.log(layout)
+  console.log("------------------------------------------")
   const subirArchivo = async () => {
     const filename = encodeURIComponent(archivo.name);
 
