@@ -57,8 +57,7 @@ const ConsultarTipoDeCambio = () => {
 
   return (
     <Main meta={<Meta title="Componentes" description="Componentes" />}>
-
-      <div className="relative flex flex-col flex-auto min-w-0 p-4 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border mx-auto w-2/3" id="descargar">
+      <div className="relative flex flex-col flex-auto min-w-0 p-4 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border mx-auto " id="descargar">
         <div className="flex items-center justify-between">
           <div className="mb-5 flex w-3/5 items-center gap-2">
             <h5 className="b-0 pl-10">Cambiar fecha:</h5>

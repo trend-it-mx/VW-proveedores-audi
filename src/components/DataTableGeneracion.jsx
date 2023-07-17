@@ -107,64 +107,57 @@ function DataTable({ rows }) {
               />
             </div>
           </div>
-        <div className="table-responsive pr-5">
-          <table className="flex w-full flex-col gap-3">
-            <thead>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <tr
-                  key={headerGroup.id}
-                  className="grid grid-cols-12  justify-items-start  py-2 pl-4 text-base font-light text-black font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                >
-                  {headerGroup.headers.map((header, idx) => {
-                    return (
-                      <th
-                        key={header.id}
-                        colSpan={header.colSpan}
-                        className={`col-span-${colSpan(idx)}`}
-                      >
-                        {header.isPlaceholder ? null : (
-                          <div
-                            {...{
-                              className: header.column.getCanSort()
-                                ? 'cursor-pointer select-none'
-                                : '',
-                              onClick: header.column.getToggleSortingHandler(),
-                            }}
-                          >
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                            {{ asc: <> <FontAwesomeIcon icon={faSortUp} className="text-sm  text-black"/> </> 
-                            ,desc: <> <FontAwesomeIcon icon={faSortDown} className="text-sm  text-black"/> </> , }[header.column.getIsSorted()] ?? null}
-                          </div>
-                        )}
-                      </th>
-                    );
-                  })}
-                </tr>
-              ))}
-            </thead>
-            <tbody className="flex w-full flex-col gap-3">
-              {table.getRowModel().rows.map((row) => {
-                return (
-                  <tr key={row.id} className="grid grid-cols-12  items-center justify-items-start pl-4 overflow-hidden text-base bg-transparent border-b text-sm shadow-transparent">
-                    {row.getVisibleCells().map((cell, idx) => {
+        <div className="table-responsive">
+          <table className="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+              <thead className="align-bottom">
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <tr key={headerGroup.id}> {headerGroup.headers.map((header, idx) => {
                       return (
-                        <td key={cell.id} className={`col-span-${colSpan(idx)}`}>                          
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext()
-                            )}                          
-                        </td>
+                        <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" key={header.id}  >
+                          {header.isPlaceholder ? null : (
+                            <div
+                              {...{
+                                className: header.column.getCanSort()
+                                  ? 'cursor-pointer select-none'
+                                  : '',
+                                onClick: header.column.getToggleSortingHandler(),
+                              }}>
+                              {flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                              {{ asc: <> <FontAwesomeIcon icon={faSortUp} className="text-sm  text-black"/> </> 
+                              ,desc: <> <FontAwesomeIcon icon={faSortDown} className="text-sm  text-black"/> </> , }
+                              [header.column.getIsSorted()] ?? null}
+                            </div>
+                          )}
+                        </th>
                       );
                     })}
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          </div>        
+                ))}
+              </thead>
+              <tbody >
+              
+                {table.getRowModel().rows.map((row) => {
+                  return (
+                    <tr key={row.id}>
+                      {row.getVisibleCells().map((cell, idx) => {
+                        return (
+                          <td key={cell.id} className="p-2 align-middle bg-transparent border-b whitespace-nowrap text-base bg-transparent text-sm shadow-transparent">
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+        </div>        
         {/* Inicio de paginación */}
         <div className="flex justify-right px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">
           <button

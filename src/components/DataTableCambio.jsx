@@ -57,7 +57,7 @@ function DataTable({ rows }) {
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}> {headerGroup.headers.map((header, idx) => {
                       return (
-                        <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" key={header.id} colSpan={header.colSpan} >
+                        <th className="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" key={header.id}  >
                           {header.isPlaceholder ? null : (
                             <div
                               {...{
@@ -81,19 +81,18 @@ function DataTable({ rows }) {
                   </tr>
                 ))}
               </thead>
-              <tbody>
+              <tbody >
+              
                 {table.getRowModel().rows.map((row) => {
                   return (
-                    <tr key={row.id} className="text-sm font-normal leading-normal" >
+                    <tr key={row.id}>
                       {row.getVisibleCells().map((cell, idx) => {
                         return (
-                          <td
-                            key={cell.id}
-                            // className={
-                            //   idx === 0 || idx === 1 ? 'col-span-5' : 'col-span-1'
-                            // }
-                            className="p-2 leading-normal align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">
-                            {flexRender(cell.column.columnDef.cell, cell.getContext() )}
+                          <td key={cell.id} className="p-2 align-middle bg-transparent border-b whitespace-nowrap text-base bg-transparent text-sm shadow-transparent">
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
+                            )}
                           </td>
                         );
                       })}
@@ -102,6 +101,7 @@ function DataTable({ rows }) {
                 })}
               </tbody>
             </table>
+            
           </div>
         </div>
       </div>

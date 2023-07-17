@@ -91,55 +91,53 @@ const Main = (props) => {
         </nav>
         <main className="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">        
           <div className="relative w-full px-1 text-gray-700 antialiased">
-            <div className="mx-10">
-              <div className="flex items-center justify-between pb-8">
-                {/* <button
-                  className="flex items-center gap-4"
-                  onClick={() => setMenuActivo(true)}>
-                  <Image
-                    src="/assets/images/menu.png"
-                    alt="Tres líneas apiladas"
-                    width={30}
-                    height={25}
-                  />
-                  <h2>Menú</h2>
-                </button> */}
+            <div className="flex items-center justify-between pb-8">
+              {/* <button
+                className="flex items-center gap-4"
+                onClick={() => setMenuActivo(true)}>
+                <Image
+                  src="/assets/images/menu.png"
+                  alt="Tres líneas apiladas"
+                  width={30}
+                  height={25}
+                />
+                <h2>Menú</h2>
+              </button> */}
 
-                {/* {process.env.NEXT_PUBLIC_SISTEMA === 'VW' ? (
-                  <Image
-                    src="/assets/images/vw.jpg"
-                    alt="V encima de una W dentro de un aro azul"
-                    width={80}
-                    height={80}
-                  />
-                ) : (
-                  <Image
-                    src="/assets/images/audi.png"
-                    alt="logotipo de audi"
-                    width={140}
-                    height={90}
-                  />
-                )} */}
+              {/* {process.env.NEXT_PUBLIC_SISTEMA === 'VW' ? (
+                <Image
+                  src="/assets/images/vw.jpg"
+                  alt="V encima de una W dentro de un aro azul"
+                  width={80}
+                  height={80}
+                />
+              ) : (
+                <Image
+                  src="/assets/images/audi.png"
+                  alt="logotipo de audi"
+                  width={140}
+                  height={90}
+                />
+              )} */}
 
-                {/* <button
-                  className="flex items-center gap-4"
-                  // onClick={() => signOut()}
-                  
-                >
-                  <Image
-                    src="/assets/images/cerrar.png"
-                    alt="Flecha apuntando hacia la derecha partiendo de una puerta"
-                    width={30}
-                    height={30}
-                  />
-                  <h2>Salir</h2>
-                </button> */}
-              </div>
-              <div className="mx-auto w-10/12">
-                <div className="oveflow-x-hidden py-5 text-xl">
-                  {/* <BotonesIntermedias /> */}
-                  {props.children}
-                </div>
+              {/* <button
+                className="flex items-center gap-4"
+                // onClick={() => signOut()}
+                
+              >
+                <Image
+                  src="/assets/images/cerrar.png"
+                  alt="Flecha apuntando hacia la derecha partiendo de una puerta"
+                  width={30}
+                  height={30}
+                />
+                <h2>Salir</h2>
+              </button> */}
+            </div>
+            <div className="mx-auto w-10/12">
+              <div className="oveflow-x-hidden py-5 text-xl">
+                {/* <BotonesIntermedias /> */}
+                {props.children}
               </div>
             </div>
           </div>

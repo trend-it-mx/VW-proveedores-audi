@@ -103,10 +103,10 @@ const Registro = ({ actualizar, setActualizar, setData }) => {
             <FontAwesomeIcon icon={faClose} className="w-4 h-4 ml-auto box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer -m-2"/>
           </button>
           </div>
-        <div className="">
+        <div>
           <div className=" max-w-full px-3 flex-0">
               <label
-                htmlFor={'usuario'} className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" >
+                htmlFor={'usuario'} className="text-xs font-bold text-slate-700 dark:text-white/80" >
                 {formatField('usuario')}
               </label>
               <div className="relative flex flex-wrap items-stretch w-full rounded-lg">
@@ -139,7 +139,7 @@ const Registro = ({ actualizar, setActualizar, setData }) => {
               </div>
           </div>
           <div className=" max-w-full px-3 flex-0">
-            <label htmlFor={'nombre'} className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" >
+            <label htmlFor={'nombre'} className="text-xs font-bold text-slate-700 dark:text-white/80" >
               {formatField('nombre')}
             </label>
             <div className="relative flex flex-wrap items-stretch w-full rounded-lg">
@@ -173,7 +173,7 @@ const Registro = ({ actualizar, setActualizar, setData }) => {
             </div>
           </div>
           <div className=" max-w-full px-3 flex-0">
-            <label htmlFor={'correo_electronico'} className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80" >
+            <label htmlFor={'correo_electronico'} className="text-xs font-bold text-slate-700 dark:text-white/80" >
               {formatField('correo_electronico')}
             </label>
             <div className="relative flex flex-wrap items-stretch w-full rounded-lg">
@@ -208,7 +208,7 @@ const Registro = ({ actualizar, setActualizar, setData }) => {
           <div className=" max-w-full px-3 flex-0">
             <label
               htmlFor={'roles'}
-              className="mb-2 ml-1 text-xs font-bold text-slate-700 dark:text-white/80"
+              className="text-xs font-bold text-slate-700 dark:text-white/80"
             >
               {formatField('roles')}
             </label>
