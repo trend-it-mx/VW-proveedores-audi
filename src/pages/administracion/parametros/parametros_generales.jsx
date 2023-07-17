@@ -122,12 +122,12 @@ const ParametrosGenerales = ({ data, opcTemplates, error }) => {
               </div>
 
               <div className="grid md:grid-cols-2 md:gap-6">
-                <ParametrosField
+                {/* <ParametrosField
                   name="SUFIJO_ORDENES_ABIERTAS"
                   label="Prefijo en número de órdenes abiertas"
                   type="number"
                   required
-                />
+                /> */}
 
                 <ParametrosField
                   name="SUFIJO_ORDENES_CERRADAS"
