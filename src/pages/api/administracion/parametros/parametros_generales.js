@@ -7,7 +7,7 @@ const bigquery = new BigQuery();
 export default async function handler(req, res) {
   await NextCors(req, res, corsOptions);
   if (req.method === 'GET') {
-    const query = `SELECT * EXCEPT (ACTUALIZADO_POR, FECHA_ACTUALIZACION) FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PARAMETROS_VW ORDER BY ID_CONFIGURACION DESC LIMIT 1`;
+    const query = `SELECT * EXCEPT (ACTUALIZADO_POR, FECHA_ACTUALIZACION) FROM vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PARAMETROS_AUDI ORDER BY ID_CONFIGURACION DESC LIMIT 1`;
     const options = {
       query,
       location: 'EU',
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     SELECT
       MAX(ID_CONFIGURACION) AS MAXI
     FROM
-      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PARAMETROS_VW`;
+      vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${process.env.AMBIENTE_PROD}.CAT_PARAMETROS_AUDI`;
     let options = {
       query,
       location: 'EU',
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     query = `INSERT INTO
     vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
       process.env.AMBIENTE_PROD
-    }.CAT_PARAMETROS_VW
+    }.CAT_PARAMETROS_AUDI
   WITH
     MAXIMO AS (
     SELECT
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     FROM
       vw-vwm-bi-anagp-p-evalpro-l44.STG_AUDI_${
         process.env.AMBIENTE_PROD
-      }.CAT_PARAMETROS_VW)
+      }.CAT_PARAMETROS_AUDI)
   SELECT
     ${maxi + 1} AS ID_CONFIGURACION,
     "${req.body.AMBIENTE}" AS AMBIENTE,
