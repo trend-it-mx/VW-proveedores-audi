@@ -38,7 +38,7 @@ const MenuAside = () => {
         <aside mini="true" className="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto transition-all duration-200 ease-in-out -translate-x-full bg-zinc-910 border-0 shadow-none xl:ml-6 dark:bg-slate-850 z-990 max-w-64 rounded-2xl xl:translate-x-0" id="sidenav-main">
           <div className="h-20">
             <i className="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 dark:text-white xl:hidden" aria-hidden="true"></i>
-            <a className="block px-12 py-6 m-0 text-sm whitespace-nowrap text-slate-700 dark:text-white" href="https://www.audi.com.mx/" target="_blank">
+            <a className="block px-12 py-6 m-0 text-sm whitespace-nowrap text-slate-700 dark:text-white" href="#" target="_blank">
               <img src="/assets/images/210211_Audi_Mexico_Logo_red_white.png" className="inline-block h-full max-w-full transition-all duration-200 ease-in-out max-h-10 dark:hidden" alt="main_logo" />
               <img src="/assets/images/210211_Audi_Mexico_Logo_red_white.png" className="hidden h-full max-w-full transition-all duration-200 ease-in-out max-h-10 dark:inline-block" alt="main_logo" />            
             </a>
